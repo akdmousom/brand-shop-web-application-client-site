@@ -1,11 +1,14 @@
 
 import { Outlet } from 'react-router-dom';
+import Navbar from '../Components/Header/Navbar';
+import { Toaster } from 'react-hot-toast';
 
 const MainLayOut = () => {
     return (
-        <div>
-            <h1>Hello Bangladesh</h1>
+        <div className=' font-poppins'>
+            <Navbar/>
             <Outlet/>
+            <Toaster/>
         </div>
     );
 };
