@@ -41,8 +41,7 @@ const Register = () => {
             body: JSON.stringify(user)
           })
           .then(res => res.json())
-          .then(data => {
-          })
+        
 
         createUser(email, password)
         .then((userCredential) => {
@@ -67,18 +66,18 @@ const Register = () => {
     }
 
     const googleLogin = () => {
-
+        
         googleSignIn()
         .then((result) => {
             const user = result.user;
             const {email, photoURL, displayName} = user
-            const googleUser = {email, photoURL, displayName}
+            const users = {name : displayName , profileimg : photoURL , email : email}
             fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
                 "Content-Type":"application/json"
             },
-            body: JSON.stringify(googleUser)
+            body: JSON.stringify(users)
           })
           .then(res => res.json())
           .then(data => {
