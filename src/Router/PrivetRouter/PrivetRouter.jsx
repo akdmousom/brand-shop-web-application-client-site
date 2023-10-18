@@ -1,17 +1,29 @@
 import { useContext } from "react";
 import { userContext } from "../../Utils/AuthContext/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 
 
 const PrivetRouter = ({children}) => {
 
-    const {user} = useContext(userContext);
+    const {userInfo, loading} = useContext(userContext);
 
-    const navigate = useNavigate()
+    const location = useLocation();
 
-    if (!user) {
+    if (loading) {
 
-        navigate('/login')
+        return (
+            <div className="flex max-w-[1200px] mx-auto justify-center  min-h-screen ">
+                <span className="loading loading-ring text-warning loading-lg"></span>
+            </div>
+        )
+        
+    }
+
+    if (!userInfo) {
+
+        return <Navigate state={location.pathname} to={'/login'}></Navigate>
 
         
     }
@@ -19,5 +31,9 @@ const PrivetRouter = ({children}) => {
 
     return children
 };
+
+PrivetRouter.propTypes = {
+    children : PropTypes.object.isRequired
+}
 
 export default PrivetRouter;

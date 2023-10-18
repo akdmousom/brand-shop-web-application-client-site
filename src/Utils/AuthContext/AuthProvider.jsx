@@ -1,4 +1,4 @@
-import React, { createContext, useEffect } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
 
@@ -11,64 +11,63 @@ import {
 
 } from "firebase/auth";
 import auth from '../../FirebaseConfig/FirebaseConfig';
-import toast from 'react-hot-toast';
+
+
+
 
 export const userContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = React.useState(null);
+    const [userInfo, setUser] = useState(null);
+    const [loading, setLoading] = useState(true)
 
 
     const provider = new GoogleAuthProvider();
 
     
     const createUser = (email, password) => {
+        setLoading(true)
 
         return createUserWithEmailAndPassword(auth, email, password)
 
     }
 
     const googleSignIn = () => {
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
     const signInWithAccount = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const signOutAccount = () => {
-        signOut(auth)
-        .then(()=>{
-            toast.success('Logout Successfully')
-        })
-        .catch((error)=> {
-            const msg = error.message
-            toast.error(msg)
-        })
-    }
+  
+    
+        
 
     useEffect(()=>{
         onAuthStateChanged(auth, (user)=>{
-            if (user) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/auth.user
-                const uid = user.uid;
+            
+            
+               
                 setUser(user)
-                // ...
-              } else {
-                // User is signed out
-                // ...
-              }
+                setLoading(false)
+                
+             
         })
     },[])
 
 
     const contextValue = {
-        user,
+        userInfo,
         createUser,
         googleSignIn,
         signInWithAccount,
-        signOutAccount,
+        signOut,
+        loading,
+        setLoading,
+
 
     }
 

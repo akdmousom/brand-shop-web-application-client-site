@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import{FcGoogle} from 'react-icons/fc';
 import React from 'react';
 import { userContext } from '../../Utils/AuthContext/AuthProvider';
@@ -8,10 +8,20 @@ const Login = () => {
 
     const {googleSignIn, signInWithAccount} = React.useContext(userContext)
 
-
+    const navigate = useNavigate()
+    const location = useLocation()
+  
 
     const googleLogin = () => {
         googleSignIn()
+        .then(res => {
+            if ( res.user) {
+
+                toast.success("Login Successfully")
+                navigate(location?.state ? location.state : '/')
+                
+            }
+        })
     }
 
     const signInWithCredential = (e) => {
@@ -26,7 +36,8 @@ const Login = () => {
             // Signed in 
             if (userCredential) {
 
-               toast.success('Successfully Login')
+                toast.success("Login Successfully")
+                navigate(location?.state ? location.state : '/')
                 
             }
             // ...

@@ -1,7 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { userContext } from '../../Utils/AuthContext/AuthProvider';
 
 const Home = () => {
+    const {userInfo} = useContext(userContext)
+    console.log(userInfo);
     return (
         <div>
             <h2>Home</h2>
