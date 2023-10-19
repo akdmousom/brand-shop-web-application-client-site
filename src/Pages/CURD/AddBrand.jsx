@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 const AddBrand = () => {
 
 
@@ -19,7 +21,13 @@ const AddBrand = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            if (data.acknowledged) {
+
+                toast.success('New Brand Addeded');
+
+                form.reset();
+                
+            }
         })
 
         

@@ -10,6 +10,7 @@ import UserProfile from '../Pages/UserProfile/UserProfile';
 import DashBoard from '../Pages/DashBoard/DashBoard';
 import AddBrand from '../Pages/CURD/AddBrand';
 import DashboardLayout from '../MainLayOut/DashboardLayout';
+import BrandsAllProducts from '../Pages/BrandsAllProducts/BrandsAllProducts';
 
 const Router = createBrowserRouter([
    
@@ -19,7 +20,8 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home/>
+                element: <Home/>,
+                loader: () => fetch('http://localhost:5000/brands')
             },
             {
                 path: '/login',
@@ -42,6 +44,10 @@ const Router = createBrowserRouter([
             {
                 path: '/user-profile',
                 element: <PrivetRouter><UserProfile/></PrivetRouter>
+            },
+            {
+                path: '/brands-all-products',
+                element: <PrivetRouter><BrandsAllProducts/></PrivetRouter>
             },
             {
                 path: '/dashboard',
