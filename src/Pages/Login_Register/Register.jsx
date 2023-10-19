@@ -80,9 +80,7 @@ const Register = () => {
             body: JSON.stringify(users)
           })
           .then(res => res.json())
-          .then(data => {
-
-          })
+          
             navigate('/')
            
           }).catch((error) => {

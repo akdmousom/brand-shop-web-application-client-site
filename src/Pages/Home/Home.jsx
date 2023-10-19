@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { userContext } from '../../Utils/AuthContext/AuthProvider';
 import { UserDataContext } from '../../Utils/UserDataContext/UserData';
+import Banner from '../../Components/Header/Banner';
 
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
    
     return (
         <div>
-            <h2>Home</h2>
+            <Banner/>
         </div>
     );
 };

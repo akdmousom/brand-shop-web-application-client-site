@@ -34,12 +34,12 @@ const Navbar = () => {
   const navigation = [
 
     <>
-      <li ><Link to={'/'}>Home</Link></li>
-      <li ><Link>About</Link></li>
+      <li className="text-base font-medium" ><Link to={'/'}>Home</Link></li>
+      <li className="text-base font-medium" ><Link>About</Link></li>
 
       {
-              userInfo ? <><li ><Link to={'/add-product'}>Add-Product</Link></li>
-              <li ><Link to={'/my-cart'}>My-Cart</Link></li></> : ''
+              userInfo ? <><li className="text-base font-medium" ><Link to={'/add-product'}>Add-Product</Link></li>
+              <li className="text-base font-medium" ><Link to={'/my-cart'}>My-Cart</Link></li></> : ''
             }
 
     </>
@@ -105,7 +105,7 @@ const Navbar = () => {
                     <span className="badge">New</span>
                   </Link>
                 </li>
-                  <li><a>Settings</a></li>
+                  <li><Link to={'/dashboard'}>Dashboard</Link></li>
                   <li><button onClick={() => {
 
                     toast.success("Logout Successfully")

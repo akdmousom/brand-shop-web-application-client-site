@@ -7,8 +7,12 @@ import AddProduct from '../Pages/AddProduct/AddProduct';
 import PrivetRouter from './PrivetRouter/PrivetRouter';
 import MyCart from '../Pages/Cart/MyCart';
 import UserProfile from '../Pages/UserProfile/UserProfile';
+import DashBoard from '../Pages/DashBoard/DashBoard';
+import AddBrand from '../Pages/CURD/AddBrand';
+import DashboardLayout from '../MainLayOut/DashboardLayout';
 
 const Router = createBrowserRouter([
+   
     {
         path: '/',
         element: <MainLayOut/>,
@@ -38,9 +42,33 @@ const Router = createBrowserRouter([
             {
                 path: '/user-profile',
                 element: <PrivetRouter><UserProfile/></PrivetRouter>
-            }
+            },
+            {
+                path: '/dashboard',
+                element: <DashboardLayout></DashboardLayout>,
+                children:[
+                    {
+                        path: '/dashboard',
+                        element: <PrivetRouter><DashBoard/></PrivetRouter>,
+                        children: [
+                            {
+                                path: '/dashboard/add-brand',
+                                element: <PrivetRouter><AddBrand></AddBrand></PrivetRouter>
+                            },
+                            {
+                                path: '/dashboard/add-product',
+                                element: <PrivetRouter><AddProduct/></PrivetRouter>
+                            },
+                        ]
+                    },
+                    
+                ]
+            },
+            
         ]
-    }
+    },
+
+  
 ])
 
 export default Router;
