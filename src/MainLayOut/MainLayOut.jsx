@@ -9,6 +9,11 @@ const MainLayOut = () => {
             <Navbar/>
             <Outlet/>
             <Toaster/>
+            <footer className="footer mt-2  footer-center p-4 bg-gray-600 text-white">
+                <aside>
+                    <p className="text-center">Copyright © 2023 - All right reserved by beautify Ltd</p>
+                </aside>
+            </footer>
         </div>
     );
 };

@@ -11,6 +11,7 @@ import DashBoard from '../Pages/DashBoard/DashBoard';
 import AddBrand from '../Pages/CURD/AddBrand';
 import DashboardLayout from '../MainLayOut/DashboardLayout';
 import BrandsAllProducts from '../Pages/BrandsAllProducts/BrandsAllProducts';
+import ProductDetails from '../Pages/ProductDetails/ProductDetails';
 
 const Router = createBrowserRouter([
    
@@ -34,7 +35,8 @@ const Router = createBrowserRouter([
 
             {
                 path: '/add-product',
-                element: <PrivetRouter><AddProduct/></PrivetRouter>
+                element: <PrivetRouter><AddProduct/></PrivetRouter>,
+                
             }, 
 
             {
@@ -49,6 +51,11 @@ const Router = createBrowserRouter([
                 path: '/brands-all-products/:id',
                 element: <PrivetRouter><BrandsAllProducts/></PrivetRouter>,
                 loader: ({params}) => fetch(`http://localhost:5000/single-brands/${params.id}`)
+            },
+            {
+                path: '/product-details/:id',
+                element:<PrivetRouter><ProductDetails/></PrivetRouter>,
+                loader: ({params}) => fetch(`http://localhost:5000/product-details/${params.id}`)
             },
             {
                 path: '/dashboard',
