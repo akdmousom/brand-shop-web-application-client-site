@@ -46,8 +46,9 @@ const Router = createBrowserRouter([
                 element: <PrivetRouter><UserProfile/></PrivetRouter>
             },
             {
-                path: '/brands-all-products',
-                element: <PrivetRouter><BrandsAllProducts/></PrivetRouter>
+                path: '/brands-all-products/:id',
+                element: <PrivetRouter><BrandsAllProducts/></PrivetRouter>,
+                loader: ({params}) => fetch(`http://localhost:5000/single-brands/${params.id}`)
             },
             {
                 path: '/dashboard',

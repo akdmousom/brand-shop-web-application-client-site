@@ -2,11 +2,21 @@ import { Link } from "react-router-dom";
 
 
 const BrandsCard = ({ brand }) => {
-    const { brandName, logoImg } = brand
+    const { _id, brandName, logoImg } = brand
+
+    const handleBrandClick = (id) => {
+        fetch(`http://localhost:5000/single-brands/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    }
+
+   
 
     return (
         <>
-            <Link to={'/brands-all-products'}>
+            <Link onClick={()=> handleBrandClick(_id)} to={`/brands-all-products/${_id}`}>
 
                 <div className="relative flex flex-col  text-gray-800 bg-gray-300 shadow-md lg:w-96 rounded-xl bg-clip-border">
                     <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg rounded-xl bg-clip-border">
