@@ -16,7 +16,7 @@ const AddProduct = () => {
 
         const productData = {productImg, productName,  brandName, productType, productPrice,  shortDescription, productRating}
 
-        console.log(productImg, productName,  brandName, productType, productPrice,  shortDescription, productRating);
+       
        
         fetch('http://localhost:5000/products', {
             method: "POST",
@@ -28,7 +28,7 @@ const AddProduct = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+           
             toast.success('Product Is Added Successfully ')
             form.reset();
         })

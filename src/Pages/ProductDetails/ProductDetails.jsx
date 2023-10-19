@@ -1,17 +1,47 @@
 import { useLoaderData } from "react-router-dom";
 import Rating from "react-rating";
-import {AiFillStar, AiOutlineStar} from 'react-icons/ai'
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
+import toast from "react-hot-toast";
+import { useContext } from "react";
+import { userContext } from "../../Utils/AuthContext/AuthProvider";
 
 const ProductDetails = () => {
+    const { userInfo } = useContext(userContext)
+    console.log(userInfo.email);
+    const userEmail = userInfo?.email
     const product = useLoaderData()
-    console.log(product);
-    const { productName, productPrice, productRating, productType, shortDescription, productImg } = product
+
+    
+    const { productName, productPrice, productRating, productType, shortDescription, productImg } = product;
+
+    const productCartDetails = { productName, productPrice, productRating, productType, shortDescription, productImg, userEmail}
+    
+    const addToCart = () => {
+        fetch('http://localhost:5000/add-to-cart', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(productCartDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.acknowledged) {
+
+                    toast.success('This Product Is Added To Your Cart')
+                    
+                }
+        
+                
+            })
+    }
 
     return (
         <div className="lg:w-[1200px] lg:mx-auto lg:justify-normal px-2 grid justify-center">
 
             <div className="grid justify-center">
-            <img  src={productImg} alt="" />
+                <img src={productImg} alt="" />
             </div>
             <div className="my-10">
                 <h1 className="md:text-2xl texl-xl font-bold">{productName}</h1>
@@ -19,12 +49,12 @@ const ProductDetails = () => {
                 <div className="flex items-center justify-between">
                     <h1 className="md:text-2xl texl-xl font-bold py-2 ">Price: ${productPrice}</h1>
                     <Rating
-                            placeholderRating={productRating
-                            }
-                            emptySymbol={<AiOutlineStar/>}
-                            placeholderSymbol={<AiFillStar color="	#ffa534"/>}
-                            fullSymbol={<AiFillStar color="	#ffa534"/>}
-                        />
+                        placeholderRating={productRating
+                        }
+                        emptySymbol={<AiOutlineStar />}
+                        placeholderSymbol={<AiFillStar color="	#ffa534" />}
+                        fullSymbol={<AiFillStar color="	#ffa534" />}
+                    />
                 </div>
             </div>
 
@@ -33,7 +63,7 @@ const ProductDetails = () => {
             </div>
 
             <div className="my-2">
-            <button className="btn btn-default bg-secondary text-white">Add To Cart</button>
+                <button onClick={addToCart} className="btn btn-default bg-secondary text-white">Add To Cart</button>
             </div>
 
 

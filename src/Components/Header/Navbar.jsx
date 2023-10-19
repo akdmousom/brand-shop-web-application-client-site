@@ -25,11 +25,7 @@ const Navbar = () => {
     }
   }, [userInfo])
 
-  console.log(userInfo, profileData);
 
-
-
-  // console.log("error",profileData?.profileimg);
 
   const navigation = [
 

@@ -7,9 +7,7 @@ const BrandsCard = ({ brand }) => {
     const handleBrandClick = (id) => {
         fetch(`http://localhost:5000/single-brands/${id}`)
         .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
+    
     }
 
    

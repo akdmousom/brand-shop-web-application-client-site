@@ -10,9 +10,7 @@ const SingleProductCard = ({ matchProduct }) => {
     const handleProductDetails = (id) => {
         fetch(`http://localhost:5000/product-details/${id}`)
         .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
+     
     }  
 
     return (

@@ -11,7 +11,7 @@ const Home = () => {
     const {userInfo} = useContext(userContext)
     const {userData} = useContext(UserDataContext)
 
-    console.log(allBrands);
+
    
     return (
         <div>

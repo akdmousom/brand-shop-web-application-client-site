@@ -12,14 +12,14 @@ const BrandsAllProducts = () => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+             
                 setProducts(...products, data)
             })
     }, [])
 
-    console.log(brandName.toLowerCase());
+ 
     const matchProduct = products?.filter(product => product?.brandName?.toLowerCase() === brandName?.toLowerCase());
-    console.log('my', matchProduct);
+  
 
 
     return (
