@@ -28,7 +28,7 @@ const BrandsAllProducts = () => {
                 <h1>{brandName}</h1>
 
             </div>
-            <div className="grid w-[1200px] mx-auto grid-cols-1 my-5 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid lg:w-[1200px] mx-auto grid-cols-1 my-5 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     matchProduct?.map(matchProduct => <SingleProductCard key={matchProduct?._id} matchProduct={matchProduct} />)
                 }

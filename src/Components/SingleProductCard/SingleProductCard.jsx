@@ -1,12 +1,22 @@
 import Rating from "react-rating";
 import {AiFillStar, AiOutlineStar} from 'react-icons/ai'
+import { Link } from "react-router-dom";
 
 const SingleProductCard = ({ matchProduct }) => {
-    const { productImg, productName, brandName, productType, shortDescription, productPrice, productRating
+    const { _id, productImg, productName, brandName, productType, shortDescription, productPrice, productRating
 
     } = matchProduct;
+
+    const handleProductDetails = (id) => {
+        fetch(`http://localhost:5000/product-details/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    }  
+
     return (
-        <div className="w-[1200px] mx-auto">
+        <div className="">
 
             <div className="card lg:w-96 bg-base-100 shadow-xl">
                 <figure><img src={productImg} alt="Shoes" /></figure>
@@ -29,7 +39,7 @@ const SingleProductCard = ({ matchProduct }) => {
                         /></div>
                     </div>
                     <div className="mt-2 flex justify-between">
-                        <button className="btn btn-default">Details</button>
+                        <Link to={`/product-details/${_id}`} onClick={handleProductDetails(_id)} className="btn btn-default">Details</Link>
                         <button className="btn btn-default">Update</button>
                     </div>
                 </div>
