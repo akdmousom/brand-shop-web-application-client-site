@@ -27,24 +27,24 @@ const BrandsCard = ({ brand }) => {
 
                     </div>
                     <div className="flex justify-center p-6 pt-2 gap-7">
-                        <a
+                        <span
                             href="#facebook"
                             className="block font-sans text-xl antialiased font-normal leading-relaxed text-transparent bg-gradient-to-tr from-blue-600 to-blue-400 bg-clip-text"
                         >
                             <i className="fab fa-facebook" aria-hidden="true"></i>
-                        </a>
-                        <a
+                        </span>
+                        <span
                             href="#twitter"
                             className="block font-sans text-xl antialiased font-normal leading-relaxed text-transparent bg-gradient-to-tr from-light-blue-600 to-light-blue-400 bg-clip-text"
                         >
                             <i className="fab fa-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a
+                        </span>
+                        <span
                             href="#instagram"
                             className="block font-sans text-xl antialiased font-normal leading-relaxed text-transparent bg-gradient-to-tr from-purple-600 to-purple-400 bg-clip-text"
                         >
                             <i className="fab fa-instagram" aria-hidden="true"></i>
-                        </a>
+                        </span>
                     </div>
                 </div>
 

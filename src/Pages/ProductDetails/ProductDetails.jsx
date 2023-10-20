@@ -7,7 +7,6 @@ import { userContext } from "../../Utils/AuthContext/AuthProvider";
 
 const ProductDetails = () => {
     const { userInfo } = useContext(userContext)
-    console.log(userInfo.email);
     const userEmail = userInfo?.email
     const product = useLoaderData()
     const navigate = useNavigate();
@@ -16,6 +15,8 @@ const ProductDetails = () => {
     const { productName, productPrice, productRating, productType, shortDescription, productImg } = product;
 
     const productCartDetails = { productName, productPrice, productRating, productType, shortDescription, productImg, userEmail}
+
+    const rating = productRating
     
     const addToCart = () => {
         fetch('http://localhost:5000/add-to-cart', {
@@ -51,7 +52,7 @@ const ProductDetails = () => {
                 <div className="flex items-center justify-between">
                     <h1 className="md:text-2xl texl-xl font-bold py-2 ">Price: ${productPrice}</h1>
                     <Rating
-                        placeholderRating={productRating
+                        placeholderRating={rating
                         }
                         emptySymbol={<AiOutlineStar />}
                         placeholderSymbol={<AiFillStar color="	#ffa534" />}

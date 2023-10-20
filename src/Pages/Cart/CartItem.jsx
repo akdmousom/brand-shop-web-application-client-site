@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const CartItem = ({product, setMatchProduct, matchProduct}) => {
     const {_id, productImg, productName, productType, shortDescription, productPrice, productRating} = product
+    const rating = productRating
     const handleDelete = (id) => {
         
 
@@ -12,8 +13,8 @@ const CartItem = ({product, setMatchProduct, matchProduct}) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
-            const newCartItem = matchProduct.filter(product => product._id !== id)
+       
+            const newCartItem = matchProduct?.filter(product => product._id !== id)
             setMatchProduct(newCartItem)
            
            
@@ -39,7 +40,7 @@ const CartItem = ({product, setMatchProduct, matchProduct}) => {
                         <div className="badge badge-outline">${productPrice
                         }</div>
                         <div className="badge badge-outline"><Rating
-                            placeholderRating={productRating
+                            placeholderRating={rating
                             }
                             emptySymbol={<AiOutlineStar/>}
                             placeholderSymbol={<AiFillStar color="	#ffa534"/>}

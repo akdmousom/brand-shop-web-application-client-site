@@ -2,17 +2,21 @@ import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { userContext } from "../../Utils/AuthContext/AuthProvider";
 import CartItem from "./CartItem";
+import { UserDataContext } from "../../Utils/UserDataContext/UserData";
 
 const Cart = () => {
     const products = useLoaderData();
     const {userInfo} = useContext(userContext)
-    // console.log(userInfo);
+    const {setCartLength} = useContext(UserDataContext)
+  
     const {email} = userInfo;
     const matchItem = products?.filter(product => product?.userEmail === email)
     const [matchProduct, setMatchProduct] = useState(matchItem);
+    const cartLength = matchProduct?.length;
+    setCartLength(cartLength)
    
 
-    console.log(matchProduct);
+
     if (matchProduct.length == []) {
 
         return (

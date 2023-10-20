@@ -1,26 +1,58 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import SingleProductCard from "../../Components/SingleProductCard/SingleProductCard";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay';
+import Offer from "../../Components/Offer/Offer";
 
 const BrandsAllProducts = () => {
     const brand = useLoaderData()
     const { brandName } = brand
+    const [productLoading, setProductLoading] = useState(true);
 
     const [products, setProducts] = useState([]);
+
 
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => {
-             
-                setProducts(...products, data)
+                setProductLoading(false)
+                setProducts(data)
             })
     }, [])
 
- 
-    const matchProduct = products?.filter(product => product?.brandName?.toLowerCase() === brandName?.toLowerCase());
-  
 
+
+    const matchProduct = products.filter(product => product?.brandName?.toLowerCase() === brandName?.toLowerCase());
+
+    if (productLoading) {
+
+        return (
+            <div className="min-h-screen grid justify-center items-center">
+                <span className="loading loading-spinner text-secondary"></span>
+            </div>
+        )
+
+    }
+
+    if (matchProduct?.length === 0) {
+
+        return (
+            <div className="h-[80vh] grid justify-center items-center">
+                <h1 className="lg:text-2xl text-xl font-bold ">Product Will Be Coming Soon</h1>
+            </div>
+        )
+
+    }
 
     return (
         <div>
@@ -28,7 +60,28 @@ const BrandsAllProducts = () => {
                 <h1>{brandName}</h1>
 
             </div>
+            <div className="my-10">
+                <Swiper
+                    // install Swiper modules
+                    modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+                    spaceBetween={50}
+                    autoplay = {true}
+                    slidesPerView={2}
+                    navigation
+                  
+                   
+                >
+                    <SwiperSlide><Offer img={'https://i.ibb.co/7t1Yn00/Shop-now.jpg'}/></SwiperSlide>
+                    <SwiperSlide><Offer img={'https://i.ibb.co/bJTzX6b/Untitled-design-2.png'}/></SwiperSlide>
+                    <SwiperSlide><Offer img={'https://i.ibb.co/QXwfgz0/Untitled-design.png'}/></SwiperSlide>
+                    <SwiperSlide><Offer img={'https://i.ibb.co/YQ3d6cG/Shop-now.png'}/></SwiperSlide>
+                    ...
+                </Swiper>
+            </div>
             <div className="grid lg:w-[1200px] mx-auto grid-cols-1 my-5 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* {
+                    matchProduct?.map(matchProduct => <SingleProductCard key={matchProduct?._id} matchProduct={matchProduct} />)
+                } */}
                 {
                     matchProduct?.map(matchProduct => <SingleProductCard key={matchProduct?._id} matchProduct={matchProduct} />)
                 }

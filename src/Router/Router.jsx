@@ -12,12 +12,15 @@ import DashboardLayout from '../MainLayOut/DashboardLayout';
 import BrandsAllProducts from '../Pages/BrandsAllProducts/BrandsAllProducts';
 import ProductDetails from '../Pages/ProductDetails/ProductDetails';
 import Cart from '../Pages/Cart/Cart';
+import UpdateProduct from '../Pages/CURD/UpdateProduct';
+import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 
 const Router = createBrowserRouter([
    
     {
         path: '/',
         element: <MainLayOut/>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -52,11 +55,17 @@ const Router = createBrowserRouter([
                 path: '/brands-all-products/:id',
                 element: <PrivetRouter><BrandsAllProducts/></PrivetRouter>,
                 loader: ({params}) => fetch(`http://localhost:5000/single-brands/${params.id}`)
+                
             },
             {
                 path: '/product-details/:id',
                 element:<PrivetRouter><ProductDetails/></PrivetRouter>,
                 loader: ({params}) => fetch(`http://localhost:5000/product-details/${params.id}`)
+            },
+            {
+                path: '/products/:id',
+                element:<PrivetRouter><UpdateProduct/></PrivetRouter>,
+                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
                 path: '/dashboard',

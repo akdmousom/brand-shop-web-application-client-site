@@ -3,7 +3,8 @@ import { createContext, useEffect, useState } from "react";
 export const UserDataContext = createContext(null);
 const UserData = ({children}) => {
 
-    const [userData, setUserData] = useState([])
+    const [userData, setUserData] = useState([]);
+    const [cartLength, setCartLength] = useState(null);
 
     useEffect(()=> {
         const get = async () => {
@@ -18,6 +19,9 @@ const UserData = ({children}) => {
 
     const data = {
         userData,
+        setCartLength,
+        cartLength
+
     }
     return (
         <UserDataContext.Provider value={data}>
