@@ -5,13 +5,13 @@ import Login from '../Pages/Login_Register/Login';
 import Register from '../Pages/Login_Register/Register';
 import AddProduct from '../Pages/AddProduct/AddProduct';
 import PrivetRouter from './PrivetRouter/PrivetRouter';
-import MyCart from '../Pages/Cart/MyCart';
 import UserProfile from '../Pages/UserProfile/UserProfile';
 import DashBoard from '../Pages/DashBoard/DashBoard';
 import AddBrand from '../Pages/CURD/AddBrand';
 import DashboardLayout from '../MainLayOut/DashboardLayout';
 import BrandsAllProducts from '../Pages/BrandsAllProducts/BrandsAllProducts';
 import ProductDetails from '../Pages/ProductDetails/ProductDetails';
+import Cart from '../Pages/Cart/Cart';
 
 const Router = createBrowserRouter([
    
@@ -41,7 +41,8 @@ const Router = createBrowserRouter([
 
             {
                 path: '/my-cart',
-                element: <PrivetRouter><MyCart/></PrivetRouter>
+                element: <PrivetRouter><Cart/></PrivetRouter>,
+                loader: () => fetch('http://localhost:5000/cart')
             },
             {
                 path: '/user-profile',

@@ -24,8 +24,7 @@ const Banner = () => {
 
                 navigation
                 pagination={{ clickable: true }}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
+               
             >
                 <SwiperSlide><img className='w-auto h-auto' src="https://i.ibb.co/mqgtJNb/cosmetics1.jpg" alt="" /></SwiperSlide>
                 <SwiperSlide><img className='w-auto h-auto' src="https://i.ibb.co/zXjpgj3/Cosmetics2.jpg" alt="" /></SwiperSlide>
