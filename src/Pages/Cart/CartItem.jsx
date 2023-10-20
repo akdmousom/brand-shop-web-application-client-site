@@ -2,11 +2,29 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
-const CartItem = ({product}) => {
-    const {productImg, productName, productType, shortDescription, productPrice, productRating} = product
-    const handleProductDetails = () => {
-        console.log("click");
+const CartItem = ({product, setMatchProduct, matchProduct}) => {
+    const {_id, productImg, productName, productType, shortDescription, productPrice, productRating} = product
+    const handleDelete = (id) => {
+        
+
+        fetch(`http://localhost:5000/cart/${id}`, {
+            method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            const newCartItem = matchProduct.filter(product => product._id !== id)
+            setMatchProduct(newCartItem)
+           
+           
+            
+        })
+        
+        
     }
+
+
+
     return (
         <div className="card lg:w-96 bg-base-100 shadow-xl">
                 <figure><img src={productImg} alt="Shoes" /></figure>
@@ -29,7 +47,7 @@ const CartItem = ({product}) => {
                         /></div>
                     </div>
                    
-                        <Link onClick={handleProductDetails} className="btn btn-default">Delete</Link>
+                        <Link onClick={()=> handleDelete(_id)} className="btn btn-default">Delete</Link>
                         
                  
                 </div>

@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Rating from "react-rating";
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import toast from "react-hot-toast";
@@ -10,6 +10,7 @@ const ProductDetails = () => {
     console.log(userInfo.email);
     const userEmail = userInfo?.email
     const product = useLoaderData()
+    const navigate = useNavigate();
 
     
     const { productName, productPrice, productRating, productType, shortDescription, productImg } = product;
@@ -30,6 +31,7 @@ const ProductDetails = () => {
                 if (data.acknowledged) {
 
                     toast.success('This Product Is Added To Your Cart')
+                    navigate('/my-cart')
                     
                 }
         
