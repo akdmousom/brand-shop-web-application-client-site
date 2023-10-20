@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 
 const BrandsCard = ({ brand }) => {
@@ -52,5 +53,9 @@ const BrandsCard = ({ brand }) => {
         </>
     );
 };
+
+BrandsCard.propTypes ={
+    brand: PropTypes.object.isRequired,
+}
 
 export default BrandsCard;

@@ -1,6 +1,3 @@
-import { useContext } from 'react';
-import { userContext } from '../../Utils/AuthContext/AuthProvider';
-import { UserDataContext } from '../../Utils/UserDataContext/UserData';
 import Banner from '../../Components/Header/Banner';
 import BrandsCard from '../../Components/Home/BrandsCard';
 import { useLoaderData } from 'react-router-dom';
@@ -14,8 +11,7 @@ import { Map, Marker } from "pigeon-maps";
 
 const Home = () => {
     const allBrands = useLoaderData();
-    const { userInfo } = useContext(userContext)
-    const { userData } = useContext(UserDataContext)
+    
     AOS.init();
 
 

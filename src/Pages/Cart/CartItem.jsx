@@ -1,6 +1,7 @@
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types"
 
 const CartItem = ({product, setMatchProduct, matchProduct}) => {
     const {_id, productImg, productName, productType, shortDescription, productPrice, productRating} = product
@@ -14,8 +15,11 @@ const CartItem = ({product, setMatchProduct, matchProduct}) => {
         .then(res => res.json())
         .then(data => {
        
-            const newCartItem = matchProduct?.filter(product => product._id !== id)
+            if (data) {
+                const newCartItem = matchProduct?.filter(product => product._id !== id)
             setMatchProduct(newCartItem)
+                
+            }
            
            
             
@@ -55,5 +59,11 @@ const CartItem = ({product, setMatchProduct, matchProduct}) => {
             </div>
     );
 };
+
+CartItem.propTypes ={ 
+    product: PropTypes.object.isRequired,
+    setMatchProduct: PropTypes.func.isRequired,
+    matchProduct: PropTypes.object.isRequired
+}
 
 export default CartItem;

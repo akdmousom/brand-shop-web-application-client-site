@@ -2,16 +2,16 @@ import Rating from "react-rating";
 import {AiFillStar, AiOutlineStar} from 'react-icons/ai'
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import PropTypes from 'prop-types';
 
 const SingleProductCard = ({ matchProduct }) => {
     const [productLoading, setProductLoading] = useState(true);
   
-    const { _id, productImg, productName, brandName, productType, shortDescription, productPrice, productRating
+    const { _id, productImg, productName, productType, shortDescription, productPrice, productRating
 
     } = matchProduct;
 
-    const productData = {_id, productImg, productName, brandName, productType, shortDescription, productPrice, productRating}
+    
     const rating = productRating;
 
     const handleProductDetails = (id) => {
@@ -94,5 +94,9 @@ const SingleProductCard = ({ matchProduct }) => {
         </div>
     );
 };
+
+SingleProductCard.propTypes ={
+    matchProduct: PropTypes.object.isRequired,
+}
 
 export default SingleProductCard;

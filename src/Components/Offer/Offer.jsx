@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Offer = ({img}) => {
     return (
         <div>
@@ -6,4 +8,7 @@ const Offer = ({img}) => {
     );
 };
 
+Offer.propTypes ={
+    img : PropTypes.string.isRequired
+}
 export default Offer;

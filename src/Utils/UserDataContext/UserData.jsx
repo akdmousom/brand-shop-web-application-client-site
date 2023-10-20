@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import PropTypes from 'prop-types'
 
 export const UserDataContext = createContext(null);
 const UserData = ({children}) => {
@@ -29,5 +30,9 @@ const UserData = ({children}) => {
         </UserDataContext.Provider>
     );
 };
+
+UserData.propTypes ={
+    children: PropTypes.object.isRequired,
+}
 
 export default UserData;

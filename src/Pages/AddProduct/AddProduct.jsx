@@ -14,31 +14,33 @@ const AddProduct = () => {
         const shortDescription = form.shortDescription.value;
         const productRating = form.productRating.value;
 
-        const productData = {productImg, productName,  brandName, productType, productPrice,  shortDescription, productRating}
+        const productData = { productImg, productName, brandName, productType, productPrice, shortDescription, productRating }
 
-       
-       
+
+
         fetch('http://localhost:5000/products', {
             method: "POST",
             headers: {
-                "Content-Type":"application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(productData)
 
         })
-        .then(res => res.json())
-        .then(data => {
-           
-            toast.success('Product Is Added Successfully ')
-            form.reset();
-        })
+            .then(res => res.json())
+            .then(data => {
 
-        
+                if (data) {
+                    toast.success('Product Is Added Successfully ')
+                    form.reset();
+                }
+            })
+
+
     }
 
 
-   
-    
+
+
 
 
     return (
@@ -108,8 +110,8 @@ const AddProduct = () => {
                             </label> */}
 
                             <textarea rows="4" cols="60"
-                            className="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                            name="shortDescription" placeholder=''
+                                className="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-md peer border-blue-gray-200 border-t-transparent text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                                name="shortDescription" placeholder=''
                             >
 
                             </textarea>
@@ -136,8 +138,8 @@ const AddProduct = () => {
                         >
                             Add Product
                         </button>
-                       
-                       
+
+
                     </div>
                 </form>
             </div>

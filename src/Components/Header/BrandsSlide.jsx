@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const BrandsSlide = ({img}) => {
     return (
         <div>
@@ -5,5 +6,9 @@ const BrandsSlide = ({img}) => {
         </div>
     );
 };
+
+BrandsSlide.propTypes={
+    img: PropTypes.string.isRequired
+}
 
 export default BrandsSlide;
