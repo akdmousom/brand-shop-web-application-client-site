@@ -14,66 +14,71 @@ import ProductDetails from '../Pages/ProductDetails/ProductDetails';
 import Cart from '../Pages/Cart/Cart';
 import UpdateProduct from '../Pages/CURD/UpdateProduct';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
+import About from '../Pages/About/About';
 
 const Router = createBrowserRouter([
-   
+
     {
         path: '/',
-        element: <MainLayOut/>,
+        element: <MainLayOut />,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
-                element: <Home/>,
-                loader: () => fetch('http://localhost:5000/brands')
+                element: <Home />,
+                loader: () => fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/brands')
+            },
+            {
+                path: '/about',
+                element: <About />
             },
             {
                 path: '/login',
-                element: <Login/>
+                element: <Login />
             },
             {
                 path: '/register',
-                element: <Register/>
+                element: <Register />
             },
 
             {
                 path: '/add-product',
-                element: <PrivetRouter><AddProduct/></PrivetRouter>,
-                
-            }, 
+                element: <PrivetRouter><AddProduct /></PrivetRouter>,
+
+            },
 
             {
                 path: '/my-cart',
-                element: <PrivetRouter><Cart/></PrivetRouter>,
-                loader: () => fetch('http://localhost:5000/cart')
+                element: <PrivetRouter><Cart /></PrivetRouter>,
+                loader: () => fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/cart')
             },
             {
                 path: '/user-profile',
-                element: <PrivetRouter><UserProfile/></PrivetRouter>
+                element: <PrivetRouter><UserProfile /></PrivetRouter>
             },
             {
                 path: '/brands-all-products/:id',
-                element: <PrivetRouter><BrandsAllProducts/></PrivetRouter>,
-                loader: ({params}) => fetch(`http://localhost:5000/single-brands/${params.id}`)
-                
+                element: <PrivetRouter><BrandsAllProducts /></PrivetRouter>,
+                loader: ({ params }) => fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/single-brands/${params.id}`)
+
             },
             {
                 path: '/product-details/:id',
-                element:<PrivetRouter><ProductDetails/></PrivetRouter>,
-                loader: ({params}) => fetch(`http://localhost:5000/product-details/${params.id}`)
+                element: <PrivetRouter><ProductDetails /></PrivetRouter>,
+                loader: ({ params }) => fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/product-details/${params.id}`)
             },
             {
                 path: '/products/:id',
-                element:<PrivetRouter><UpdateProduct/></PrivetRouter>,
-                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+                element: <PrivetRouter><UpdateProduct /></PrivetRouter>,
+                loader: ({ params }) => fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/products/${params.id}`)
             },
             {
                 path: '/dashboard',
                 element: <DashboardLayout></DashboardLayout>,
-                children:[
+                children: [
                     {
                         path: '/dashboard',
-                        element: <PrivetRouter><DashBoard/></PrivetRouter>,
+                        element: <PrivetRouter><DashBoard /></PrivetRouter>,
                         children: [
                             {
                                 path: '/dashboard/add-brand',
@@ -81,18 +86,18 @@ const Router = createBrowserRouter([
                             },
                             {
                                 path: '/dashboard/add-product',
-                                element: <PrivetRouter><AddProduct/></PrivetRouter>
+                                element: <PrivetRouter><AddProduct /></PrivetRouter>
                             },
                         ]
                     },
-                    
+
                 ]
             },
-            
+
         ]
     },
 
-  
+
 ])
 
 export default Router;

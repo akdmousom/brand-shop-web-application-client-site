@@ -17,7 +17,7 @@ const Home = () => {
 
 
     return (
-        <div>
+        <div className='mx-auto w-full'>
 
             <div className=' my-32'>
                 <Marquee className='flex px-28'>
@@ -30,11 +30,16 @@ const Home = () => {
                 </Marquee>
             </div>
 
+            <div className='grid my-5 md:justify-center min-w-full'>
+                <h1 className='text-secondary font-bold text-center text-xl lg:text-5xl my-8'>Grab This Deal</h1>
+                <img className='lg:w-[1200px] lg:h-[400px]' src="https://i.ibb.co/QXwfgz0/Untitled-design.png" alt="" />
+            </div>
+
             <Banner />
 
             <h1 className='my-4 text-gray-800 text-center font-bold text-xl md:text-2xl'>We Are Affiliated With This Brands</h1>
             <div data-aos="fade-in"
-                className='lg:w-[1200px] lg:mx-auto grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 md:gap-2 md:px-4 gap-6 px-2'>
+                className=' grid lg:w-[1200px] mx-auto lg:grid-cols-3 grid-cols-1 md:grid-cols-2 md:gap-2 md:px-4 gap-6 px-2'>
                 {
                     allBrands?.map(brand => <BrandsCard key={brand._id} brand={brand} />)
                 }

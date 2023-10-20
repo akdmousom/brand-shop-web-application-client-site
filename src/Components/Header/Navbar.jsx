@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import userimg from "../../assets/user.png"
 import { useContext, useEffect, useState } from "react";
 import { userContext } from "../../Utils/AuthContext/AuthProvider";
@@ -30,20 +30,18 @@ const Navbar = () => {
 
 
 
-  const navigation = [
-
-    <>
-      <li className="text-base font-medium" ><Link to={'/'}>Home</Link></li>
-      <li className="text-base font-medium" ><Link>About</Link></li>
+  const navigation = <>
+      <li className="text-base font-medium" ><NavLink to={'/'}>Home</NavLink></li>
+      <li className="text-base font-medium" ><NavLink to={'/about'}>About</NavLink></li>
 
       {
-              userInfo ? <><li className="text-base font-medium" ><Link to={'/add-product'}>Add-Product</Link></li>
-              <li className="text-base font-medium" ><Link to={'/my-cart'}>My-Cart</Link></li></> : ''
+              userInfo ? <><li key={5} className="text-base font-medium" ><NavLink to={'/add-product'}>Add-Product</NavLink></li>
+              <li key={4} className="text-base font-medium" ><NavLink to={'/my-cart'}>My-Cart</NavLink></li></> : ''
             }
 
     </>
 
-  ]
+ 
 
   return (
     <div className="navbar bg-base-100">

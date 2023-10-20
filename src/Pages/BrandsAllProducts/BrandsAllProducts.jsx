@@ -22,7 +22,7 @@ const BrandsAllProducts = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/products')
             .then(res => res.json())
             .then(data => {
                 setProductLoading(false)
@@ -60,7 +60,7 @@ const BrandsAllProducts = () => {
                 <h1>{brandName}</h1>
 
             </div>
-            <div className="my-10">
+            <div className=" my-24">
                 <Swiper
                     // install Swiper modules
                     modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}

@@ -6,7 +6,7 @@ const BrandsCard = ({ brand }) => {
     const { _id, brandName, logoImg } = brand
 
     const handleBrandClick = (id) => {
-        fetch(`http://localhost:5000/single-brands/${id}`)
+        fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/single-brands/${id}`)
         .then(res => res.json())
     
     }
@@ -17,7 +17,7 @@ const BrandsCard = ({ brand }) => {
         <>
             <Link onClick={()=> handleBrandClick(_id)} to={`/brands-all-products/${_id}`}>
 
-                <div className="relative flex flex-col  text-gray-800 bg-gray-300 shadow-md lg:w-96 rounded-xl bg-clip-border">
+                <div className="relative flex flex-col  text-gray-800 bg-gray-300 shadow-md xl:w-96 rounded-xl bg-clip-border">
                     <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg rounded-xl bg-clip-border">
                         <img className="w-full" src={logoImg} alt="profile-picture" />
                     </div>

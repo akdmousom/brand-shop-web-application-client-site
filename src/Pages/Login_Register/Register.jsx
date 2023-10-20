@@ -33,7 +33,7 @@ const Register = () => {
             return
           }
 
-          fetch('http://localhost:5000/users', {
+          fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/users', {
             method: 'POST',
             headers: {
                 "Content-Type":"application/json"
@@ -72,7 +72,7 @@ const Register = () => {
             const user = result.user;
             const {email, photoURL, displayName} = user
             const users = {name : displayName , profileimg : photoURL , email : email}
-            fetch('http://localhost:5000/users', {
+            fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/users', {
             method: 'POST',
             headers: {
                 "Content-Type":"application/json"

@@ -18,7 +18,7 @@ const AddProduct = () => {
 
 
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/products', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

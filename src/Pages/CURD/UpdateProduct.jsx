@@ -25,7 +25,7 @@ const UpdateProduct = () => {
 
         const productUpdateData = {_id, productImg, productName,brandName,productType,productPrice,shortDescription, productRating }
 
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/products/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type":"application/json"

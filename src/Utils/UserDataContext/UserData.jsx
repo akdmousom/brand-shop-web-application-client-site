@@ -10,7 +10,7 @@ const UserData = ({children}) => {
     useEffect(()=> {
         const get = async () => {
 
-            const response = await fetch('http://localhost:5000/users')
+            const response = await fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/users')
             const data = await response.json()
             setUserData(data)
 

@@ -19,7 +19,7 @@ const ProductDetails = () => {
     const rating = productRating
     
     const addToCart = () => {
-        fetch('http://localhost:5000/add-to-cart', {
+        fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/add-to-cart', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

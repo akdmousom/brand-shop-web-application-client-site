@@ -1,5 +1,5 @@
 
-import { Link, useRouteError } from 'react-router-dom';
+import { NavLink, useRouteError } from 'react-router-dom';
 
 const ErrorPage = () => {
     const err = useRouteError()
@@ -14,7 +14,7 @@ const ErrorPage = () => {
             }
             </div>
 
-           <Link to={'/'}> <button className='btn text-center btn-secondary'>Back To Home</button></Link>
+            <NavLink to={'/'}>  <button className='btn text-center btn-secondary'>Back To Home</button></NavLink>
  
             </div>
         </div>
