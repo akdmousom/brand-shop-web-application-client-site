@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 const BrandsSlide = ({img}) => {
     return (
         <div>
-            <img className="h-[200px] w-[200px]" src={img} alt="" />
+            <img className=" flex h-[150px] w-[400px] px-8 items-center" src={img} alt="" />
         </div>
     );
 };

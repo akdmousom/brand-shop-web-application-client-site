@@ -47,7 +47,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar dark light bg-base-100">
+    <div className="navbar dark  bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -61,8 +61,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex gap-2 items-center">
-          <div><img className="hidden" src={logo} alt="" /></div>
-          <div><h1 className="text-2xl font-bold text-secondary hidden">beautify</h1></div>
+          <div><img className="hidden md:block" src={logo} alt="" /></div>
+          <div><h1 className="text-2xl font-bold text-secondary hidden md:block">beautify</h1></div>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
