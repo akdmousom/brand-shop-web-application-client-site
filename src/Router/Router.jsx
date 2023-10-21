@@ -26,7 +26,7 @@ const Router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: () => fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/brands')
+                loader: () => fetch('https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/brands')
             },
             {
                 path: '/about',
@@ -50,7 +50,7 @@ const Router = createBrowserRouter([
             {
                 path: '/my-cart',
                 element: <PrivetRouter><Cart /></PrivetRouter>,
-                loader: () => fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/cart')
+                loader: () => fetch('https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/cart')
             },
             {
                 path: '/user-profile',
@@ -59,18 +59,18 @@ const Router = createBrowserRouter([
             {
                 path: '/brands-all-products/:id',
                 element: <PrivetRouter><BrandsAllProducts /></PrivetRouter>,
-                loader: ({ params }) => fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/single-brands/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/single-brands/${params.id}`)
 
             },
             {
                 path: '/product-details/:id',
                 element: <PrivetRouter><ProductDetails /></PrivetRouter>,
-                loader: ({ params }) => fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/product-details/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/product-details/${params.id}`)
             },
             {
                 path: '/products/:id',
                 element: <PrivetRouter><UpdateProduct /></PrivetRouter>,
-                loader: ({ params }) => fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/products/${params.id}`)
             },
             {
                 path: '/dashboard',

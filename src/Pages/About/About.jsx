@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const About = () => {
+
     return (
         <div>
             <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/rxGmr7x/pexels-tara-winstead-6479582.jpg)' }}>

@@ -33,7 +33,7 @@ const Register = () => {
             return
           }
 
-          fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/users', {
+          fetch('https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/users', {
             method: 'POST',
             headers: {
                 "Content-Type":"application/json"
@@ -72,7 +72,7 @@ const Register = () => {
             const user = result.user;
             const {email, photoURL, displayName} = user
             const users = {name : displayName , profileimg : photoURL , email : email}
-            fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/users', {
+            fetch('https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/users', {
             method: 'POST',
             headers: {
                 "Content-Type":"application/json"
@@ -94,8 +94,8 @@ const Register = () => {
 
 
     return (
-        <div className="md:h-[80vh] w-full mx-auto mt-5 grid md:justify-center md:items-center ">
-            <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
+        <div className="md:h-[80vh] lg:w-full mx-auto mt-5 grid md:justify-center md:items-center ">
+            <div className="relative flex flex-col text-gray-700 bg-white shadow-md lg:w-96 rounded-xl bg-clip-border">
                 <div className="relative grid mx-4 mb-4 -mt-6 overflow-hidden text-white shadow-lg h-28 place-items-center rounded-xl bg-gradient-to-tr from-pink-600 to-pink-400 bg-clip-border shadow-pink-500/40">
                     <h3 className="block font-sans text-3xl antialiased font-semibold leading-snug tracking-normal text-white">
                         Register

@@ -12,7 +12,7 @@ const AddBrand = () => {
 
         const data = {brandName, logoImg}
 
-        fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/brands', {
+        fetch('https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/brands', {
             method: "POST",
             headers: {
                 "Content-Type":"application/json",

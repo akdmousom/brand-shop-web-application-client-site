@@ -9,7 +9,7 @@ const CartItem = ({product, setMatchProduct, matchProduct}) => {
     const handleDelete = (id) => {
         
 
-        fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/cart/${id}`, {
+        fetch(`https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/cart/${id}`, {
             method: "DELETE"
         })
         .then(res => res.json())

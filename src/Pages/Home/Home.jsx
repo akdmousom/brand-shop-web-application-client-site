@@ -1,16 +1,61 @@
 import Banner from '../../Components/Header/Banner';
 import BrandsCard from '../../Components/Home/BrandsCard';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Marquee from "react-fast-marquee";
 import BrandsSlide from '../../Components/Header/BrandsSlide';
 import { Map, Marker } from "pigeon-maps";
+import { useEffect } from 'react';
 
 
 
 const Home = () => {
-    const allBrands = useLoaderData();
+    const allBrands = useLoaderData() 
+    const navigate = useNavigate()
+    
+    
+   
+   
+    console.log(Array.isArray(allBrands));
+    const isArray = Array.isArray(allBrands);
+
+    useEffect(()=>{
+
+        document.title = "Home"
+
+       setInterval(()=>{
+            if (!isArray) {
+                location.reload()
+
+                return navigate('/')
+                
+            }
+        },1000)
+
+        
+    
+    },[])
+
+
+    if (!isArray) {
+
+        return (
+            <div className='min-h-screen grid justify-center items-center'>
+              
+                <div className='text-center justify-center items-center flex flex-col gap-4'>
+                <h1 className='text-center font-bold '>Wating For Server Response</h1>
+                <span className="loading grid loading-spinner text-secondary"></span>
+                </div>
+               
+            </div>
+        )
+        
+    }
+
+   
+
+ 
     
     AOS.init();
 
@@ -41,7 +86,7 @@ const Home = () => {
             <div data-aos="fade-in"
                 className=' grid lg:w-[1200px] mx-auto lg:grid-cols-3 grid-cols-1 md:grid-cols-2 md:gap-2 md:px-4 gap-6 px-2'>
                 {
-                    allBrands?.map(brand => <BrandsCard key={brand._id} brand={brand} />)
+                  allBrands?.map(brand => <BrandsCard key={brand._id} brand={brand}/>)
                 }
             </div>
 

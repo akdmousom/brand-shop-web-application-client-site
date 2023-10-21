@@ -15,7 +15,7 @@ const SingleProductCard = ({ matchProduct }) => {
     const rating = productRating;
 
     const handleProductDetails = (id) => {
-        fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/product-details/${id}`)
+        fetch(`https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/product-details/${id}`)
         .then(res => res.json())
         .then(data => {
             if (data) {
@@ -32,7 +32,7 @@ const SingleProductCard = ({ matchProduct }) => {
     const handleProductUpdate = (id) => {
 
            
-        fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/products/${id}`)
+        fetch(`https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/products/${id}`)
         
         .then(res => res.json())
         

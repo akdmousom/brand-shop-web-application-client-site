@@ -6,7 +6,7 @@ const BrandsCard = ({ brand }) => {
     const { _id, brandName, logoImg } = brand
 
     const handleBrandClick = (id) => {
-        fetch(`https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/single-brands/${id}`)
+        fetch(`https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/single-brands/${id}`)
         .then(res => res.json())
     
     }

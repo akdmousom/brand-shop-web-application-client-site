@@ -22,7 +22,7 @@ const BrandsAllProducts = () => {
 
 
     useEffect(() => {
-        fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/products')
+        fetch('https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/products')
             .then(res => res.json())
             .then(data => {
                 setProductLoading(false)

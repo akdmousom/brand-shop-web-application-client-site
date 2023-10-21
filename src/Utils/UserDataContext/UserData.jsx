@@ -6,13 +6,15 @@ const UserData = ({children}) => {
 
     const [userData, setUserData] = useState([]);
     const [cartLength, setCartLength] = useState(null);
+    const [waitFetch, setWaitFetch] = useState(true)
 
     useEffect(()=> {
         const get = async () => {
 
-            const response = await fetch('https://brand-shop-backend-ejo139ky4-arijit-kumar-das-projects.vercel.app/users')
+            const response = await fetch('https://brand-shop-backend-hia9widhl-arijit-kumar-das-projects.vercel.app/users')
             const data = await response.json()
             setUserData(data)
+            setWaitFetch(false)
 
         }
         get()
@@ -21,7 +23,10 @@ const UserData = ({children}) => {
     const data = {
         userData,
         setCartLength,
-        cartLength
+        cartLength,
+        setWaitFetch,
+        waitFetch,
+        
 
     }
     return (
