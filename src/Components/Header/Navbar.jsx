@@ -6,10 +6,12 @@ import auth from "../../FirebaseConfig/FirebaseConfig";
 import toast from "react-hot-toast";
 import { UserDataContext } from "../../Utils/UserDataContext/UserData";
 import logo from '../../assets/react.svg';
+import useTheme from "../../Utils/themeHook";
 const Navbar = () => {
 
   const { signOut, userInfo } = useContext(userContext)
   const { userData, cartLength } = useContext(UserDataContext)
+  const { toggleTheme } = useTheme()
 
   const [profileData, setProfileData] = useState()
 
@@ -31,20 +33,21 @@ const Navbar = () => {
 
 
   const navigation = <>
-      <li className="text-base font-medium" ><NavLink to={'/'}>Home</NavLink></li>
-      <li className="text-base font-medium" ><NavLink to={'/about'}>About</NavLink></li>
+    <li className="text-base font-medium" ><NavLink to={'/'}>Home</NavLink></li>
+    <li className="text-base font-medium" ><NavLink to={'/about'}>About</NavLink></li>
 
-      {
-              userInfo ? <><li key={5} className="text-base font-medium" ><NavLink to={'/add-product'}>Add-Product</NavLink></li>
-              <li key={4} className="text-base font-medium" ><NavLink to={'/my-cart'}>My-Cart</NavLink></li></> : ''
-            }
+    {
+      userInfo ? <><li key={5} className="text-base font-medium" ><NavLink to={'/add-product'}>Add-Product</NavLink></li>
+        <li key={4} className="text-base font-medium" ><NavLink to={'/my-cart'}>My-Cart</NavLink></li></> : ''
+    }
 
-    </>
 
- 
+  </>
+
+
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar dark light bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,13 +56,13 @@ const Navbar = () => {
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
 
             {navigation}
-            
-           
+
+
           </ul>
         </div>
         <div className="flex gap-2 items-center">
-          <div><img src={logo} alt="" /></div>
-          <div><h1 className="text-2xl font-bold text-secondary">beautify</h1></div>
+          <div><img className="hidden" src={logo} alt="" /></div>
+          <div><h1 className="text-2xl font-bold text-secondary hidden">beautify</h1></div>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -68,6 +71,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <div className="form-control">
+          
+            
+            <input onClick={toggleTheme} type="checkbox" className="toggle"  />
+         
+        </div>
         <div className="flex items-center">
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -76,21 +85,28 @@ const Navbar = () => {
                 {userInfo ? <span className="badge badge-sm indicator-item">{cartLength ? cartLength : "0"}</span> : <span className="badge badge-sm indicator-item">0</span>}
               </div>
             </label>
+
             {
-              userInfo ? <><div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
-                <div className="card-body">
-                  <span className="font-bold text-lg">{cartLength ? cartLength : "0"} Items</span>
-                          <div className="card-actions">
-                    <Link to={'/my-cart'}><button className="btn btn-primary btn-block">View cart</button></Link>
+              userInfo ? <>
+
+                <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                  <div className="card-body">
+                    <span className="font-bold text-lg">{cartLength ? cartLength : "0"} Items</span>
+                    <div className="card-actions">
+                      <Link to={'/my-cart'}><button className="btn btn-primary btn-block">View cart</button></Link>
+                    </div>
                   </div>
-                </div>
-              </div></> : ''
+                </div></> : ''
             }
           </div>
-          
+
+
+
+
           <div className="dropdown dropdown-end">
+
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              
+
               <div className="w-10 rounded-full">
                 {
                   userInfo ? <img src={profileData?.profileimg} /> : <img src={userimg} />
@@ -102,9 +118,9 @@ const Navbar = () => {
               {
                 userInfo ? <><li>
                   <Link to={'/user-profile'} className="justify-between">
-                  <div>
-                <h1>{profileData?.name}</h1>
-              </div>
+                    <div>
+                      <h1>{profileData?.name}</h1>
+                    </div>
                     <span className="badge">New</span>
                   </Link>
                 </li>

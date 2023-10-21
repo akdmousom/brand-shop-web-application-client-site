@@ -11,52 +11,52 @@ import { useEffect } from 'react';
 
 
 const Home = () => {
-    const allBrands = useLoaderData() 
+    const allBrands = useLoaderData()
     const navigate = useNavigate()
-    
-    
-   
-   
+
+
+
+
     console.log(Array.isArray(allBrands));
     const isArray = Array.isArray(allBrands);
 
-    useEffect(()=>{
+    useEffect(() => {
 
         document.title = "Home"
 
-       setInterval(()=>{
+        setInterval(() => {
             if (!isArray) {
                 location.reload()
 
                 return navigate('/')
-                
-            }
-        },1000)
 
-        
-    
-    },[])
+            }
+        }, 1000)
+
+
+
+    }, [])
 
 
     if (!isArray) {
 
         return (
-            <div className='min-h-screen grid justify-center items-center'>
-              
+            <div className='min-h-screen bg-dark grid justify-center items-center'>
+
                 <div className='text-center justify-center items-center flex flex-col gap-4'>
-                <h1 className='text-center font-bold '>Wating For Server Response</h1>
-                <span className="loading grid loading-spinner text-secondary"></span>
+                    <h1 className='text-center font-bold '>Wating For Server Response</h1>
+                    <span className="loading grid loading-spinner text-secondary"></span>
                 </div>
-               
+
             </div>
         )
-        
+
     }
 
-   
 
- 
-    
+
+
+
     AOS.init();
 
 
@@ -82,11 +82,11 @@ const Home = () => {
 
             <Banner />
 
-            <h1 className='my-4 text-gray-800 text-center font-bold text-xl md:text-2xl'>We Are Affiliated With This Brands</h1>
+            <h1 className='my-4 text-secondary text-center font-bold text-xl md:text-2xl'>We Are Affiliated With This Brands</h1>
             <div data-aos="fade-in"
                 className=' grid lg:w-[1200px] mx-auto lg:grid-cols-3 grid-cols-1 md:grid-cols-2 md:gap-2 md:px-4 gap-6 px-2'>
                 {
-                  allBrands?.map(brand => <BrandsCard key={brand._id} brand={brand}/>)
+                    allBrands?.map(brand => <BrandsCard key={brand._id} brand={brand} />)
                 }
             </div>
 
