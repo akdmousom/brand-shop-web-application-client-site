@@ -3,6 +3,7 @@ import{FcGoogle} from 'react-icons/fc';
 import React from 'react';
 import { userContext } from '../../Utils/AuthContext/AuthProvider';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const Login = () => {
 
@@ -36,8 +37,22 @@ const Login = () => {
             // Signed in 
             if (userCredential) {
 
+               
+                const logedIn ={
+                    email : userCredential.user.email
+                }
+
+                axios.post('http://localhost:5000/jwt', logedIn, {withCredentials: true})
+                .then((response)=>{
+                    console.log(response.data);
+                })
+
+                console.log(logedIn);
+
+
                 toast.success("Login Successfully")
                 navigate(location?.state ? location.state : '/')
+                
                 
             }
             // ...

@@ -23,7 +23,7 @@ const Cart = () => {
             <div className="grid min-h-screen justify-center items-center">
 
                <div className="grid justify-center text-center gap-4 items-center">
-               <h1 className="text-xl md:text-2xl font-bold text-gray-800">Your Cart Is Empty</h1>
+               <h1 className="text-xl md:text-2xl font-bold dark:text-black text-white text-gray-800">Your Cart Is Empty</h1>
                 <Link to={'/'}><button className="btn btn-secondary">Buy Some Product</button></Link>
                </div>
 

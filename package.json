@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "axios": "^1.6.0",
     "firebase": "^10.5.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -23,7 +24,7 @@
     "react-icons": "^4.11.0",
     "react-rating": "^2.0.5",
     "react-router-dom": "^6.17.0",
-    "sort-by": "^1.2.0",
+    "sort-by": "^0.0.2",
     "swiper": "^10.3.1"
   },
   "devDependencies": {

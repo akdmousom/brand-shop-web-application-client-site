@@ -55,8 +55,8 @@ const SingleProductCard = ({ matchProduct }) => {
                         {productName}
                         
                     </h2>
-                    <div className="badge badge-secondary"><p className="text-white">{productType}</p></div>
-                    <p>{shortDescription}</p>
+                    <div className="badge badge-secondary"><p className=" dark:text-black text-white">{productType}</p></div>
+                    <p className=" dark:text-black ">{shortDescription}</p>
                     <div className="card-actions justify-end">
                         <div className="badge badge-outline">${productPrice
                         }</div>

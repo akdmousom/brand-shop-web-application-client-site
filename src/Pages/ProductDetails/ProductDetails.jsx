@@ -47,10 +47,10 @@ const ProductDetails = () => {
                 <img src={productImg} alt="" />
             </div>
             <div className="my-10">
-                <h1 className="md:text-2xl texl-xl font-bold">{productName}</h1>
+                <h1 className="md:text-2xl texl-xl font-bold dark:text-black text-white">{productName}</h1>
                 <div className="badge badge-secondary"><p className="text-white">{productType}</p></div>
                 <div className="flex items-center justify-between">
-                    <h1 className="md:text-2xl texl-xl font-bold py-2 ">Price: ${productPrice}</h1>
+                    <h1 className="md:text-2xl texl-xl font-bold py-2 dark:text-black text-white">Price: ${productPrice}</h1>
                     <Rating
                         placeholderRating={rating
                         }
@@ -62,7 +62,7 @@ const ProductDetails = () => {
             </div>
 
             <div>
-                <p>{shortDescription}</p>
+                <p className=" dark:text-black text-white">{shortDescription}</p>
             </div>
 
             <div className="my-2">
